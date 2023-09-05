@@ -1,0 +1,20 @@
+---
+- name: installing apache
+  hosts: all
+  tasks:
+    - name: install
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: copy the date
+      copy:
+        content: hello
+        dest: /var/www/html/index.html
+
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
+
