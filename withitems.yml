@@ -1,0 +1,14 @@
+---
+- name: example of with_items
+  hosts: all
+  tasks:
+    - name: creating the files
+      file:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+      with_items:
+        - { a: nikhil, b: touch } 
+        - { a: my, b: directory }
+        - { a: mine, b: touch }
+      
+...

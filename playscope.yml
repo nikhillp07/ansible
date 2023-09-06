@@ -1,0 +1,19 @@
+---
+- name: this the example of playscope
+  hosts: all
+  vars:
+    - nm: git
+    - st: present
+    - uc: yes
+    - st1: touch
+  tasks:
+    - name: install git
+      apt:
+        name: "{{nm}}"
+        state: "{{st}}"
+        update_cache: "{{uc}}"
+    - name: file mode
+      file:
+        name: "{{nm}}"
+        state: "{{st1}}"
+...

@@ -1,0 +1,11 @@
+---
+- name: example of globalscope variable
+  hosts: all
+  tasks:
+    - name: variables
+      apt:
+        name: "{{NM}}"
+        state: "{{st}}"
+        update_cache: "{{uc}}"
+...
+ # ansible-playbook globalscopev.yml --extra-vars "NM=git st=absent uc=no" -b
